@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/authenticated/css/profile.css}">
+    <link rel="stylesheet" th:href="@{/fontawesome/css/all.min.css}">  
+    
+    <!-- <link rel="stylesheet" href="../static/authenticated/css/profile.css">
+    <link rel="stylesheet" href="../static/fontawesome/css/all.min.css"> -->
+
+    <title>Perfil</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: rgb(2,0,36);
+            background: linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%); 
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            
+            font-family: 'Poppins';
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="/profile">Perfil</a></li>
+            <li><a href="/createuser">Crear usuario</a></li>
+            <li><a href="/listusers">Listar Usuarios</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <div class="container-profile">
+            <form action="#" method="post" id="formUploadFile">    
+
+                <div class="file-name"></div><br>
+                  
+                <label for="file">
+                    <div class="fa-solid fa-image"></div>
+                </label> 
+                <input type="file" name="file" id="file" style="display:none;">   
+                <label for="idSubmit">
+                    <span class="fa-solid fa-upload"></span> 
+                </label>
+                <input type="submit" id="idSubmit" value="" style="display:none;"> 
+            </form>    
+            <div class="photo">
+                <!-- <img alt="photo" th:src="@{/authenticated/images/userDefault.png}" id="photo"> -->
+                <img alt="photo" id="photo">
+            </div>
+            <span class="id-span">ID</span>
+            <span class="username-span">Username</span>
+            <span class="birthday-span">Birthday</span>
+            <span class="created-span">Created</span>
+        </div>
+    </section>
+    
+    <!-- <script type="text/javascript" src="../static/authenticated/js/profile.js"> -->
+    <script type="text/javascript" th:src="@{/authenticated/js/profile.js}" >
+</script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="../static/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../static/admin/css/listusers.css"> -->
+
+    <link rel="stylesheet" th:href="@{/fontawesome/css/all.min.css}">
+    <link rel="stylesheet" th:href="@{/admin/css/listusers.css}">    
+    <title>List Users</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        body {
+            background: rgb(2,0,36);
+            background: linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%); 
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }        
+    </style>    
+</head>
+<body>
+
+    <div class="malla-modal"></div>
+
+    <div class="modal-form">
+        <span class="fa-solid fa-close"></span>
+        <h1>Modificar Usuario</h1>
+        <form action="#" method="post" id="formModifyUser">
+            <input type="hidden" name="idUser" id="idUser">
+            <div class="field-container">
+                <span class="fa-solid fa-user icon-field"></span>
+                <input type="text" name="username" id="username" class="field" placeholder="Usuario">
+            </div>
+            <div class="field-container">
+                <span class="fa-solid fa-lock icon-field"></span>
+                <input type="text" name="password" id="password" class="field" placeholder="Contraseña">
+            </div>
+            <div class="field-container">
+                <span class="fa-solid fa-cake icon-field"></span>
+                <input type="date" name="birthday" id="birthday" class="field" placeholder="Cumpleaños">
+            </div>  
+            
+                <div class="field-container checkboxes">
+                    <div>
+                        <input type="checkbox" name="user" id="idRolUser" value="1" class="checks">
+                        <span>USER</span>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="admin" id="idRolAdmin" value="2" class="checks">
+                        <span>ADMIN</span>
+                    </div>
+                </div>
+                
+            <div class="field-container">
+                <input type="submit" value="Modificar">
+            </div>
+        </form>
+    </div>    
+
+    <nav>
+        <ul>
+            <li><a href="/profile">Perfil</a></li>
+            <li><a href="/createuser">Crear usuario</a></li>
+            <li><a href="/listusers">Listar Usuarios</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>  
+    
+    <section>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>USERNAME</th>
+                    <th>BIRTHDAY</th>
+                    <th>CREATE</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>                              
+            </tbody>
+        </table>
+    </section>
+    
+    <!-- <script src="../static/admin/js/listusers.js"></script> -->
+    <script th:src="@{/admin/js/listusers.js}"></script>
+</body>
+</html>

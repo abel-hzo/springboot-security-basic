@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Create User</title>
+    <!-- <link rel="stylesheet" href="../static/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../static/admin/css/createuser.css"> --> -->
+
+    <link rel="stylesheet" th:href="@{/fontawesome/css/all.min.css}">
+    <link rel="stylesheet" th:href="@{/admin/css/createuser.css}">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        body {
+            background: rgb(2,0,36);
+            background: linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%); 
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }        
+    </style>
+</head>
+
+<body>
+
+    <div class="malla-modal"></div>
+
+    <div class="modal">
+        <span class="fa-solid fa-close"></span>
+        <div class="photo">
+            <img alt="photo" id="photo">
+        </div>
+        <span class="id-user">123151</span>
+        <span class="username">Abel HZO</span>
+        <span class="birthday">1986-03-26</span>
+        <span class="creation-date">2002-05-05</span>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="/profile">Perfil</a></li>
+            <li><a href="/createuser">Crear usuario</a></li>
+            <li><a href="/listusers">Listar Usuarios</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>    
+
+    <div class="container-form">
+        <h1>Crear usuario</h1>
+        <br>
+        <form action="#" method="post" id="form-save">
+            <div class="field-container">
+                <span class="fa-solid fa-user icon-field"></span>
+                <input type="text" name="username" id="username" class="field" placeholder="Usuario">
+            </div>
+            <div class="field-container">
+                <span class="fa-solid fa-lock icon-field"></span>
+                <input type="password" name="password" id="password" class="field" placeholder="Contraseña">
+            </div>
+            <div class="field-container">
+                <span class="fa-solid fa-cake icon-field"></span>
+                <input type="date" name="birthday" id="birthday" class="field" placeholder="Cumpleaños">
+            </div>      
+            <div class="field-container">
+                <input type="submit" value="Agregar">
+            </div>
+        </form>
+    </div>
+
+    <!-- <script src="../static/admin/js/createuser.js"></script> -->
+    <script th:src="@{/admin/js/createuser.js}"></script>
+</body>
+
+</html>

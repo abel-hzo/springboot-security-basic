@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--     <link rel="stylesheet" href="../static/css/style.css"> -->
+    <link rel="stylesheet" th:href="@{/public/css/style.css}">
+<!--     <link rel="stylesheet" href="../static/fontawesome/css/all.min.css"> -->
+    <link rel="stylesheet" th:href="@{/fontawesome/css/all.min.css}">
+    <title>Login</title>
+    <style>
+        body {
+            background: rgb(2,0,36);
+            background: linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%); 
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section>
+        <div class="container-form">
+            <ul class="tabs">
+                <li class="tab"><span>Login</span></li>
+            </ul>
+            <form action="/loginUrl" method="post">
+                <div class="field-container">
+                    <i class="fa-solid fa-user icon-field"></i>
+                    <input type="text" name="username" id="username" placeholder="Usuario" class="field">
+                </div>
+                <div class="field-container">
+                    <i class="fa-solid fa-lock icon-field"></i>
+                    <input type="password" name="password" id="password" placeholder="Contraseña" class="field">
+                    <i class="fa-solid fa-eye"></i>
+                </div>
+                <div class="field-container">
+                    <input type="submit" value="Ingresar">
+                </div>
+            </form>
+        </div>
+    </section>
+<!--     <script src="../static/js/script.js"></script> -->
+    <script th:src="@{/public/js/script.js}"></script>
+</body>
+
+</html>

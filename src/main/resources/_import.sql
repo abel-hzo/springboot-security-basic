@@ -1,0 +1,30 @@
+CREATE TABLE IF NOT EXISTS Roles (
+    id_rol INT PRIMARY KEY AUTO_INCREMENT,
+    rol VARCHAR(50) UNIQUE NOT NULL
+);
+
+INSERT INTO Roles(rol) VALUES('USER'), ('ADMIN');
+
+CREATE TABLE IF NOT EXISTS Users (
+    id_user BIGINT PRIMARY KEY,
+    username VARCHAR(80) UNIQUE NOT NULL,
+    password VARCHAR(80) NOT NULL,
+    birthday DATE NOT NULL,
+    photo MEDIUMBLOB,
+    creation_date DATETIME NOT NULL
+);
+
+insert into Users (id_user, username, password, birthday, photo, creation_date) values (1, 'ROOT', '{noop}admin', '2000-01-01', 'iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAJ7SURBVDjLjZNPSFRRFMZ/9/2Z90anRlKzMS1UjFyoWS3U2oVQ0KIWrXJRFC7KTdRCqUWQkBt34aKN1a5FEUkRLbKFiBAoVi4kUQIbtfwz0zjjezPv3ttCwyYr+jibs7g/vu+cc8XDwbE+pcT5TFa5fsB26fzWtsC1Gbh85vA1AEtp0X76WGWp67pCCJN/yVMggxxP30xfADYAGV85juOKR29X8VgmJaaoKvtK2E4SaMXK9zCT01EKdB0Wxdw4V4VUQvyEWtkADMPEEJA1Fqgq+YoT+kzSTxHIAMtxqK6MMTtTSFGoBKXyXVkACjAMga+/EbJXSawn8aVHNggIdBrHcUj7YYrDBhqdN5gtgBDoQOHLHF7gs57zyaoAqQCRQyuJZQi0zp+qAaD1BsCllFS6EI2NryR+IBEiRDoVIRIqxzQN0GJ7BK03IkTMvXxZWCTqzlNQaOCIgLWVAhYXYsSi1ViG2LYZS/8KsHdTHm5ibnyIokgcISW2V8q+mnYibgyp1O9nseVgarkDqRRSKQ7432ip3I8CZuYXebXWjZkoxFQRbj/wyHjezhfd87de3p3osbTWCODkxmEBYNYnyKSXceffU9LaQcP0GEuZKY7UHaViVy1Dk8/E6Mf4nebO8qLNVPnGZLgIv6SGZP1ZtGnzbvIthw42Ig1JY6wNKXI017cCXLVcWyRRuWhjWTMIsYnSPwuApeQitohwqu4SANdP3GfwQz/w3LVClnj8ZGimJSt1vdZ//gOJVCI6GR9hIj5MV9sAva8v4poOgCf03179oubO8p6KqujN1obj1O5p4tPCOCPvh5mbTfb9F2AT0gtcAXYAKaB/9F686wcCdBKN9UyNSAAAAABJRU5ErkJggg==', '2000-01-01');
+
+CREATE TABLE IF NOT EXISTS UsersRoles (
+    id_user_rol BIGINT PRIMARY KEY AUTO_INCREMENT,
+    id_user BIGINT NOT NULL,
+    id_rol INT NOT NULL,
+    creation_date DATETIME NOT NULL,
+    CONSTRAINT fk_id_user FOREIGN KEY (id_user) REFERENCES Users(id_user),
+    CONSTRAINT fk_id_rol FOREIGN KEY (id_rol) REFERENCES Roles(id_rol)
+);
+
+insert into UsersRoles (id_user, id_rol, creation_date) values (1, 1, '2000-01-01');
+insert into UsersRoles (id_user, id_rol, creation_date) values (1, 2, '2000-01-01');
+
